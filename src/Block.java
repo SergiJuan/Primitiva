@@ -18,9 +18,8 @@ public class Block {
         Random random = new Random();
         for (int i = 0; i < block.length; i++) {
             do {
-                block[i] = 0;
-            } while (!checkExist(block[i] = random.nextInt(1,49)));
-
+                block[i] = random.nextInt(1, 50);
+            } while (checkExist(block[i]));
         }
 
 
@@ -30,9 +29,9 @@ public class Block {
         this.block = block;
     }
 
-    private boolean checkExist(int number) {
+    private boolean checkExist(int number, int position) {
         System.out.println("-----------------------------");
-        for (int i = 0; i < block.length; i++) {
+        for (int i = 0; i < position; i++) {
             System.out.println("[DEBUG]: "+number + "=" + block[i] + " - " + (number == block[i]));
             if (number == block[i]) {
                 return true;
@@ -40,7 +39,6 @@ public class Block {
         }
         return false;
     }
-
 
     public int[] getNumbers() {
         return block;
