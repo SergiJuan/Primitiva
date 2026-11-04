@@ -1,11 +1,12 @@
 public class MainClass {
     public static void main(String[] args) {
 
-        Block block = new Block(49);
-        System.out.println(block);
+        Ticket ticket = new Ticket(8);
+        System.out.println(ticket);
 
-        //Ticket ticket = new Ticket(4);
-        //System.out.println(ticket);
+        int [] blocks = {5, 10, 15, 20, 25, 30, 35, 40, 45};
+        Block block = new Block(blocks);
+        System.out.println(block);
 
     }
 }

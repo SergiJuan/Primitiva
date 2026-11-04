@@ -13,13 +13,13 @@ public class Block {
             this.quantity = quantity;
         }
 
-        block = new int[quantity];
+        block = new int[this.quantity];
 
         Random random = new Random();
         for (int i = 0; i < block.length; i++) {
             do {
                 block[i] = random.nextInt(1, 50);
-            } while (checkExist(block[i]));
+            } while (checkExist(block[i], i));
         }
 
 
@@ -30,9 +30,7 @@ public class Block {
     }
 
     private boolean checkExist(int number, int position) {
-        System.out.println("-----------------------------");
         for (int i = 0; i < position; i++) {
-            System.out.println("[DEBUG]: "+number + "=" + block[i] + " - " + (number == block[i]));
             if (number == block[i]) {
                 return true;
             }
@@ -48,7 +46,11 @@ public class Block {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < block.length; i++) {
-            stringBuilder.append(block[i] + ", ");
+            if (i == block.length - 1) {
+                stringBuilder.append(block[i] + "");
+            } else {
+                stringBuilder.append(block[i] + ", ");
+            }
         }
         return stringBuilder.toString();
     }
