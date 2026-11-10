@@ -9,7 +9,35 @@ public class Ticket {
     }
 
     public void printUsedNumbers() {
-        // TODO (b -- III
+        int[] allNumbers = new int[ticket.length * 6];
+
+        for (int i = 0; i < ticket.length; i++) {
+            System.arraycopy(ticket[i].getNumbers(), 0, allNumbers, 6 * i, ticket[i].getNumbers().length);
+        }
+
+        for (int i = 0; i < allNumbers.length; i++) {
+            int tmpNumber = allNumbers[i];
+
+            for (int j = 0; j < allNumbers.length; j++) {
+                if (tmpNumber == allNumbers[j]) {
+                    if (i == j) {
+                        System.out.print(allNumbers[i] + ", ");
+                    }
+                    break;
+                }
+            }
+
+        }
+        System.out.println("");
+    }
+
+    private boolean checkExist(int[] allNumbers, int number, int position) {
+        for (int i = 0; i < position; i++) {
+            if (number == allNumbers[i]) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

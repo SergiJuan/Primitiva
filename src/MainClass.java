@@ -8,5 +8,9 @@ public class MainClass {
         Block block = new Block(blocks);
         System.out.println(block);
 
+        System.out.println("");
+
+        ticket.printUsedNumbers();
+
     }
 }
